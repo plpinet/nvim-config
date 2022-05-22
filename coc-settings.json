@@ -1,0 +1,10 @@
+{
+    "diagnostic.errorSign": "✘",
+    "diagnostic.warningSign": "",
+    "diagnostic.infoSign": "",
+    "diagnostic.hintSign": "•",
+    "suggest.triggerAfterInsertEnter": false,
+    "suggest.enablePreselect": false,
+    "suggest.noselect": true,
+    "suggest.disableMenuShortcut": true
+}
