@@ -89,8 +89,8 @@ require("toggleterm").setup{
     -- not natively supported but implemented in this plugin.
     border = 'curved', -- 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
     go_back = 0, --By default focus is returned to the original window after executing the command. Set to zero to disable this behavior
-    width = 100,
-    height = 30,
+    width = 130,
+    height = 50,
     winblend = 3,
     highlights = {
       border = "Normal",
@@ -98,6 +98,15 @@ require("toggleterm").setup{
     }
   }
 }
+
+local Terminal  = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+
+function _lazygit_toggle()
+  lazygit:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
 
 EOF
 
