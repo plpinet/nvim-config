@@ -12,7 +12,7 @@ Plug 'navarasu/onedark.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bryanmylee/vim-colorscheme-icons'
-Plug 'mhinz/vim-startify'
+"Plug 'mhinz/vim-startify'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-journal'
@@ -23,6 +23,8 @@ Plug 'nightsense/nemo'
 Plug 'yuttie/hydrangea-vim'
 Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
 Plug 'rhysd/vim-color-spring-night'
+Plug 'ayu-theme/ayu-vim'
+Plug 'drewtempelmeyer/palenight.vim'
 
 " Functionalities
 Plug 'nvim-lua/plenary.nvim'
@@ -60,7 +62,10 @@ call plug#end()
 
 " LUA SECTION
 
+
 lua << EOF
+
+-- ToggleTerm
 require("toggleterm").setup{
   -- size can be a number or function which is passed the current terminal
   size = function(term)
@@ -100,13 +105,184 @@ require("toggleterm").setup{
 }
 
 local Terminal  = require('toggleterm.terminal').Terminal
+
+-- lazygit
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
 function _lazygit_toggle()
   lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+-- neo-tree
+require("neo-tree").setup({
+  close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
+  popup_border_style = "rounded",
+  enable_git_status = true,
+  enable_diagnostics = true,
+  default_component_configs = {
+    container = {
+      enable_character_fade = true
+    },
+    indent = {
+      indent_size = 2,
+      padding = 1, -- extra padding on left hand side
+      -- indent guides
+      with_markers = true,
+      indent_marker = "│",
+      last_indent_marker = "└",
+      highlight = "NeoTreeIndentMarker",
+      -- expander config, needed for nesting files
+      with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+      expander_collapsed = "",
+      expander_expanded = "",
+      expander_highlight = "NeoTreeExpander",
+    },
+    icon = {
+      folder_closed = "",
+      folder_open = "",
+      folder_empty = "ﰊ",
+      -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
+      -- then these will never be used.
+      default = "*",
+      highlight = "NeoTreeFileIcon"
+    },
+    modified = {
+      symbol = "[+]",
+      highlight = "NeoTreeModified",
+    },
+    name = {
+      trailing_slash = false,
+      use_git_status_colors = true,
+      highlight = "NeoTreeFileName",
+    },
+    git_status = {
+      symbols = {
+        -- Change type
+        added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+        modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
+        deleted   = "✖",-- this can only be used in the git_status source
+        renamed   = "",-- this can only be used in the git_status source
+        -- Status type
+        untracked = "",
+        ignored   = "",
+        unstaged  = "",
+        staged    = "",
+        conflict  = "",
+      }
+    },
+  },
+  window = {
+    position = "left",
+    width = 40,
+    mapping_options = {
+      noremap = true,
+      nowait = true,
+    },
+    mappings = {
+      ["<space>"] = { 
+          "toggle_node", 
+          nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use 
+      },
+      ["<2-LeftMouse>"] = "open",
+      ["<cr>"] = "open",
+      ["S"] = "open_split",
+      ["s"] = "open_vsplit",
+      -- ["S"] = "split_with_window_picker",
+      -- ["s"] = "vsplit_with_window_picker",
+      ["t"] = "open_tabnew",
+      ["w"] = "open_with_window_picker",
+      ["C"] = "close_node",
+      ["a"] = { 
+        "add",
+        -- some commands may take optional config options, see `:h neo-tree-mappings` for details
+        config = {
+          show_path = "none" -- "none", "relative", "absolute"
+        }
+      },
+      ["A"] = "add_directory", -- also accepts the config.show_path option.
+      ["d"] = "delete",
+      ["r"] = "rename",
+      ["y"] = "copy_to_clipboard",
+      ["x"] = "cut_to_clipboard",
+      ["p"] = "paste_from_clipboard",
+      ["c"] = "copy", -- takes text input for destination
+      ["m"] = "move", -- takes text input for destination
+      ["q"] = "close_window",
+      ["R"] = "refresh",
+      ["?"] = "show_help",
+    }
+  },
+  nesting_rules = {},
+  filesystem = {
+    filtered_items = {
+      visible = true, -- when true, they will just be displayed differently than normal items
+      hide_dotfiles = true,
+      hide_gitignored = false,
+      hide_hidden = true, -- only works on Windows for hidden files/directories
+      hide_by_name = {
+        --"node_modules"
+      },
+      hide_by_pattern = { -- uses glob style patterns
+        --"*.meta"
+      },
+      never_show = { -- remains hidden even if visible is toggled to true
+        --".DS_Store",
+        --"thumbs.db"
+      },
+    },
+    follow_current_file = true, -- This will find and focus the file in the active buffer every
+                                 -- time the current file is changed while the tree is open.
+    group_empty_dirs = false, -- when true, empty folders will be grouped together
+    hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
+                                            -- in whatever position is specified in window.position
+                          -- "open_current",  -- netrw disabled, opening a directory opens within the
+                                            -- window like netrw would, regardless of window.position
+                          -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
+    use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+                                    -- instead of relying on nvim autocmd events.
+    window = {
+      mappings = {
+        ["<bs>"] = "navigate_up",
+        ["."] = "set_root",
+        ["H"] = "toggle_hidden",
+        ["/"] = "fuzzy_finder",
+        ["f"] = "filter_on_submit",
+        ["<c-x>"] = "clear_filter",
+        ["[g"] = "prev_git_modified",
+        ["]g"] = "next_git_modified",
+      }
+    }
+  },
+  buffers = {
+    follow_current_file = true, -- This will find and focus the file in the active buffer every
+                                 -- time the current file is changed while the tree is open.
+    group_empty_dirs = true, -- when true, empty folders will be grouped together
+    show_unloaded = true,
+    window = {
+      mappings = {
+        ["bd"] = "buffer_delete",
+        ["<bs>"] = "navigate_up",
+        ["."] = "set_root",
+      }
+    },
+  },
+  git_status = {
+    window = {
+      position = "float",
+      mappings = {
+        ["A"]  = "git_add_all",
+        ["gu"] = "git_unstage_file",
+        ["ga"] = "git_add_file",
+        ["gr"] = "git_revert_file",
+        ["gc"] = "git_commit",
+        ["gp"] = "git_push",
+        ["gg"] = "git_commit_and_push",
+      }
+    }
+  }
+})
+
+vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
 
 EOF
 
@@ -126,6 +302,7 @@ set hidden
 set number relativenumber
 set nu rnu
 set title
+set cursorline
 
 """ Coloring
 
@@ -173,7 +350,6 @@ colorscheme tokyonight
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline_statusline_ontop = 0
-let g:airline_section_z = ' %{strftime("%-I:%M %p")}'
 let g:airline_section_warning = ''
 let g:airline#extensions#tabline#enabled = 1 " Uncomment to display buffer tabline above
 
@@ -361,7 +537,8 @@ function! TrimWhitespace()
     call winrestview(l:save)
 endfunction
 
-let g:airline_theme='onedark'
+"let g:airline_theme='onedark'
+let g:airline_theme='tomorrow'
 
 """ Custom Mappings
 
@@ -376,10 +553,10 @@ nnoremap <leader>s :Neotree float git_status<cr>
 
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fG <cmd>Telescope live_grep<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>fg <cmd>Telescope current_buffer_fuzzy_find<cr>
+nnoremap <leader>g <cmd>Telescope current_buffer_fuzzy_find<cr>
 
 nmap <leader>ec :Colors<CR>
 nmap <leader>ea :AirlineTheme
@@ -389,6 +566,7 @@ nmap <leader>e3 :call ColorForgotten()<CR>
 nmap <leader>e4 :call ColorZazen()<CR>
 nmap <leader>rr :so ~/.config/nvim/init.vim<CR>
 nmap <leader>t :call TrimWhitespace()<CR>
+nmap <leader>G :lua _lazygit_toggle()<CR>
 nmap <leader>p <Plug>(pydocstring)
 xmap <leader>a gaip*
 nmap <leader>a gaip*
