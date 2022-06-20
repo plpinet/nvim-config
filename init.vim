@@ -7,9 +7,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'marko-cerovac/material.nvim'
 Plug 'sainnhe/sonokai'
 Plug 'sainnhe/gruvbox-material'
-Plug 'morhetz/gruvbox'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'navarasu/onedark.nvim'
 Plug 'bryanmylee/vim-colorscheme-icons'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/limelight.vim'
@@ -21,12 +19,12 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'cocopon/iceberg.vim'
-Plug 'ajmwagar/vim-deus'
-Plug 'rakr/vim-one'
 Plug 'yunlingz/ci_dark'
 Plug 'olimorris/onedarkpro.nvim'
 
 " Functionalities
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-neo-tree/neo-tree.nvim'
@@ -36,19 +34,19 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+"Plug 'kyazdani42/nvim-web-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhinz/vim-signify'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-abolish'
 Plug 'Yggdroot/indentLine'
-Plug 'sheerun/vim-polyglot'
 Plug 'chrisbra/Colorizer'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
@@ -60,63 +58,25 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'djoshea/vim-autoread'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 
 call plug#end()
 
 " LUA SECTION
 
-
 lua << EOF
 
--- ToggleTerm
-require("toggleterm").setup{
-  -- size can be a number or function which is passed the current terminal
-  size = function(term)
-    if term.direction == "horizontal" then
-      return 15
-    elseif term.direction == "vertical" then
-      return vim.o.columns * 0.4
-    end
-  end,
-  open_mapping = [[<C-t>]],
-  hide_numbers = true, -- hide the number column in toggleterm buffers
-  shade_filetypes = {},
-  shade_terminals = true,
-  shading_factor = '3', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
-  start_in_insert = true,
-  insert_mappings = true, -- whether or not the open mapping applies in insert mode
-  persist_size = true,
-  direction = 'float', -- | 'vertical' | 'window' | 'float'
-  close_on_exit = true, -- close the terminal window when the process exits
-  shell = vim.o.shell, -- change the default shell
-  -- This field is only relevant if direction is set to 'float'
-  float_opts = {
-    -- The border key is *almost* the same as 'nvim_open_win'
-    -- see :h nvim_open_win for details on borders however
-    -- the 'curved' border is a custom border type
-    -- not natively supported but implemented in this plugin.
-    border = 'curved', -- 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-    go_back = 0, --By default focus is returned to the original window after executing the command. Set to zero to disable this behavior
-    width = 120,
-    height = 35,
-    winblend = 3,
-    highlights = {
-      border = "Normal",
-      background = "Normal",
-    }
-  }
-}
-
-local Terminal  = require('toggleterm.terminal').Terminal
-
--- lazygit
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-
-function _lazygit_toggle()
-  lazygit:toggle()
-end
-
-vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
+require('nvim-lspconfig')
+require('nvim-autopairs')
+require('treesitter')
+require('nvim-toggleterm')
+require('nvim-cmp')
 
 EOF
 
@@ -137,7 +97,14 @@ set hidden
 set number relativenumber
 set nu rnu
 set title
+set completeopt=menu,menuone,noselect
 set cursorline
+
+" Jenkinsfile syntax highlighting
+augroup set_jenkins_groovy
+au!
+au BufNewFile,BufRead *.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
+augroup END
 
 """ Coloring
 
@@ -212,110 +179,6 @@ let g:tagbar_width = 30
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_guifg = 'gray'
 
-" coc.vim START
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Do not auto complete when pressing enter
-function! EnterSelect()
-    " if the popup is visible and an option is not selected
-    if pumvisible() && complete_info()["selected"] == -1
-        return "\<C-y>\<CR>"
-
-    " if the pum is visible and an option is selected
-    elseif pumvisible()
-        return coc#_select_confirm()
-
-    " if the pum is not visible
-    else
-        return "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-    endif
-endfunction
-
-" makes <CR> confirm selection if any or just break line if none
-inoremap <silent><expr> <cr> EnterSelect()
-
-" coc.vim END
-
 " signify
 let g:signify_sign_add = '│'
 let g:signify_sign_delete = '│'
@@ -357,7 +220,6 @@ nmap <leader>w :TagbarToggle<CR>
 nnoremap <leader>ee :Neotree source=filesystem reveal=true position=left<cr>
 nnoremap <leader>o :Neotree float reveal_force_cwd<cr>
 nnoremap <leader>bb :Neotree toggle show buffers right<cr>
-nnoremap <leader>s :Neotree float git_status<cr>
 
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
