@@ -34,7 +34,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-"Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
@@ -72,38 +72,25 @@ call plug#end()
 
 lua << EOF
 
-require('nvim-lspconfig')
-require('nvim-autopairs')
-require('treesitter')
-require('nvim-toggleterm')
-require('nvim-cmp')
+-- plugins configuration
+require('_nvim-lspconfig')
+require('_nvim-autopairs')
+require('_nvim-treesitter')
+require('_nvim-toggleterm')
+require('_nvim-cmp')
+require('_nvim-web-devicons')
+
+-- neovim options
+require('options')
 
 EOF
 
-""" Main Configurations
 filetype plugin indent on
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
-set mouse=a
-set clipboard=unnamedplus
-set incsearch ignorecase smartcase hlsearch
-set wildmode=longest,list,full wildmenu
-set ruler laststatus=2 showcmd showmode
-set list listchars=trail:»,tab:»-
-set fillchars+=vert:\ 
-set wrap breakindent
-set encoding=utf-8
-set textwidth=0
-set hidden
-set number relativenumber
-set nu rnu
-set title
-set completeopt=menu,menuone,noselect
-set cursorline
 
 " Jenkinsfile syntax highlighting
 augroup set_jenkins_groovy
 au!
-au BufNewFile,BufRead *.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
+au BufNewFile,BufRead *.jenkins,*.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
 augroup END
 
 """ Coloring
