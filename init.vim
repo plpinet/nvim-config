@@ -1,76 +1,7 @@
-""" Vim-Plug
-call plug#begin()
-
-" Aesthetics
-Plug 'joshdick/onedark.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'marko-cerovac/material.nvim'
-Plug 'sainnhe/sonokai'
-Plug 'sainnhe/gruvbox-material'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'bryanmylee/vim-colorscheme-icons'
-Plug 'arcticicestudio/nord-vim'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/vim-journal'
-Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
-Plug 'rhysd/vim-color-spring-night'
-Plug 'ayu-theme/ayu-vim'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'nanotech/jellybeans.vim'
-Plug 'cocopon/iceberg.vim'
-Plug 'yunlingz/ci_dark'
-Plug 'olimorris/onedarkpro.nvim'
-
-" Functionalities
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'MunifTanjim/nui.nvim'
-Plug 'nvim-neo-tree/neo-tree.nvim'
-Plug 'akinsho/toggleterm.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'majutsushi/tagbar'
-Plug 'ryanoasis/vim-devicons'
-Plug 'scrooloose/nerdcommenter'
-Plug 'mhinz/vim-signify'
-"Plug 'jiangmiao/auto-pairs'
-Plug 'windwp/nvim-autopairs'
-Plug 'junegunn/vim-easy-align'
-Plug 'alvan/vim-closetag'
-Plug 'tpope/vim-abolish'
-Plug 'Yggdroot/indentLine'
-Plug 'chrisbra/Colorizer'
-Plug 'KabbAmine/vCoolor.vim'
-Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
-Plug 'vim-scripts/loremipsum'
-Plug 'metakirby5/codi.vim'
-Plug 'dkarter/bullets.vim'
-Plug 'psliwka/vim-smoothie'
-Plug 'antoinemadec/FixCursorHold.nvim'
-Plug 'djoshea/vim-autoread'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-nvim-lua'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-
-call plug#end()
-
-" LUA SECTION
-
 lua << EOF
+
+-- plugins
+require('plugins')
 
 -- plugins configuration
 require('_nvim-lspconfig')
@@ -86,14 +17,6 @@ require('options')
 EOF
 
 filetype plugin indent on
-
-" Jenkinsfile syntax highlighting
-augroup set_jenkins_groovy
-au!
-au BufNewFile,BufRead *.jenkins,*.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
-augroup END
-
-""" Coloring
 
 " Main Coloring Configurations
 syntax on
@@ -134,7 +57,7 @@ let g:gruvbox_material_background = 'medium'
 let g:gruvbox_material_better_performance = 1
 
 " Load the colorscheme
-colorscheme gruvbox-material
+colorscheme tokyonight
 
 """ Plugin Configurations
 

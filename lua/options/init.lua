@@ -16,3 +16,11 @@ vim.cmd 'set completeopt=menu,menuone,noselect'
 vim.cmd 'set cursorline'
 
 vim.o.termguicolors = true
+
+-- autocommands
+vim.cmd([[
+  augroup set_jenkins_groovy
+  au!
+  au BufNewFile,BufRead *.jenkins,*.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
+  augroup END
+]])
