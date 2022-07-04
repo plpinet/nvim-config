@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
 
   -- Aesthetics
 
-  use 'joshdick/onedark.vim'
+  use 'tiagovla/tokyodark.nvim'
   use 'dracula/vim'
   use 'marko-cerovac/material.nvim'
   use 'sainnhe/sonokai'
@@ -47,8 +47,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-sensible'
   use 'tpope/vim-surround'
   use 'kyazdani42/nvim-web-devicons'
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
   use 'majutsushi/tagbar'
   use 'ryanoasis/vim-devicons'
   use 'scrooloose/nerdcommenter'
@@ -58,9 +56,7 @@ return require('packer').startup(function(use)
   use 'junegunn/vim-easy-align'
   use 'alvan/vim-closetag'
   use 'tpope/vim-abolish'
-  use 'Yggdroot/indentLine'
-  use 'chrisbra/Colorizer'
-  use 'KabbAmine/vCoolor.vim'
+  use 'lukas-reineke/indent-blankline.nvim'
   use {
     'heavenshell/vim-pydocstring',
     run = 'make install'
@@ -71,12 +67,6 @@ return require('packer').startup(function(use)
   use 'psliwka/vim-smoothie'
   use 'antoinemadec/FixCursorHold.nvim'
   use 'djoshea/vim-autoread'
-  use {
-    "junegunn/fzf",
-    dir = "~/.fzf",
-    run = "./install --all"
-  }
-  use { "junegunn/fzf.vim" }
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-nvim-lua'
@@ -84,9 +74,12 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/nvim-pasta'
+  use 'ahmedkhalf/project.nvim'
+  use 'nvim-lualine/lualine.nvim'
+  use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
+  -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
     require('packer').sync()
   end

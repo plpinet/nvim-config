@@ -14,8 +14,26 @@ vim.cmd 'set nu rnu'
 vim.cmd 'set title'
 vim.cmd 'set completeopt=menu,menuone,noselect'
 vim.cmd 'set cursorline'
+vim.cmd 'set cc=80'
+vim.cmd 'set splitbelow'
+vim.cmd 'set splitright'
+vim.cmd('filetype plugin indent on')
 
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
+vim.wo.fillchars='eob: '
+
+vim.g.tagbar_width = 30
+
+vim.g.limelight_conceal_ctermfg = 'gray'
+vim.g.limelight_conceal_guifg = 'gray'
+
+vim.cmd([[
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    %s/\\\@<!\s\+$//e
+    call winrestview(l:save)
+endfunction
+]])
 
 -- autocommands
 vim.cmd([[
