@@ -12,8 +12,6 @@ return require('packer').startup(function(use)
 
   -- Aesthetics
 
-  use 'tiagovla/tokyodark.nvim'
-  use 'dracula/vim'
   use 'marko-cerovac/material.nvim'
   use 'sainnhe/sonokai'
   use 'sainnhe/gruvbox-material'
@@ -21,8 +19,6 @@ return require('packer').startup(function(use)
   use 'bryanmylee/vim-colorscheme-icons'
   use 'arcticicestudio/nord-vim'
   use 'junegunn/limelight.vim'
-  use 'junegunn/vim-journal'
-  use 'junegunn/rainbow_parentheses.vim'
   use 'rhysd/vim-color-spring-night'
   use 'ayu-theme/ayu-vim'
   use 'drewtempelmeyer/palenight.vim'
@@ -48,22 +44,11 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'kyazdani42/nvim-web-devicons'
   use 'majutsushi/tagbar'
-  use 'ryanoasis/vim-devicons'
   use 'scrooloose/nerdcommenter'
   use 'mhinz/vim-signify'
-  use 'jiangmiao/auto-pairs'
   use 'windwp/nvim-autopairs'
   use 'junegunn/vim-easy-align'
-  use 'alvan/vim-closetag'
-  use 'tpope/vim-abolish'
   use 'lukas-reineke/indent-blankline.nvim'
-  use {
-    'heavenshell/vim-pydocstring',
-    run = 'make install'
-  }
-  use 'vim-scripts/loremipsum'
-  use 'metakirby5/codi.vim'
-  use 'dkarter/bullets.vim'
   use 'psliwka/vim-smoothie'
   use 'antoinemadec/FixCursorHold.nvim'
   use 'djoshea/vim-autoread'
