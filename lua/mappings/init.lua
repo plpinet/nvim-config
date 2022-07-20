@@ -24,6 +24,10 @@ vim.api.nvim_set_keymap('n', '<leader>ec', ':Telescope colorscheme<cr>', { norem
 vim.api.nvim_set_keymap('n', '<leader>a', '<Plug>(EasyAlign)', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<leader>a', '<Plug>(EasyAlign)', { noremap = true, silent = true })
 
+-- nvim-pasta
+vim.keymap.set({ 'n', 'x' }, 'p', require('pasta.mappings').p)
+vim.keymap.set({ 'n', 'x' }, 'P', require('pasta.mappings').P)
+
 -- tabs
 vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':bprevious<cr>', { noremap = true, silent = true })
