@@ -17,6 +17,7 @@ require('plugins._nvim-web-devicons')
 require('plugins._nvim-lualine')
 require('plugins._nvim-neo-tree')
 require('plugins._nvim-indent-blankline')
+require('plugins._nvim-telescope')
 require("bufferline").setup{}
 
 -- mappings
