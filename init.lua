@@ -5,7 +5,7 @@ require('plugins')
 require('options.colorschemes')
 
 -- neovim options
-require('options.nvim-config')
+require('options.nvim-options')
 
 -- plugins custom configurations
 require('plugins._nvim-autopairs')
