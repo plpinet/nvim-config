@@ -1,3 +1,4 @@
+-- plugin not being used right now but keeping config in case I change my mind
 vim.keymap.set({ 'n', 'x' }, 'p', require('pasta.mappings').p)
 vim.keymap.set({ 'n', 'x' }, 'P', require('pasta.mappings').P)
 

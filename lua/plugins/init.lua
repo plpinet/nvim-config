@@ -59,7 +59,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/nvim-pasta'
+  --use 'hrsh7th/nvim-pasta'
   use 'ahmedkhalf/project.nvim'
   use 'nvim-lualine/lualine.nvim'
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
