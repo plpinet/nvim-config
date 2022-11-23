@@ -14,8 +14,9 @@ vim.api.nvim_set_keymap('n', '<leader>bb', ':Neotree toggle show buffers right<c
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>rg', ':Telescope live_grep<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>q', ':Telescope buffers<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>q', ':Telescope buffers sort_mru=true<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>h', ':Telescope help_tags<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>g', ':Telescope current_buffer_fuzzy_find<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ec', ':Telescope colorscheme<cr>', { noremap = true, silent = true })
@@ -31,7 +32,7 @@ vim.api.nvim_set_keymap('v', '<leader>a', '<Plug>(EasyAlign)', { noremap = true,
 -- tabs
 vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':bprevious<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>bd', ':BufDel<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>bn', ':enew<cr>', { noremap = true, silent = true })
 
 -- splits
@@ -55,3 +56,11 @@ vim.api.nvim_set_keymap('n', '<leader>l', ':Limelight!!<cr>', { noremap = true, 
 
 -- clear search
 vim.api.nvim_set_keymap('n', '<leader><leader>', ':noh<cr>', { noremap = true, silent = true })
+
+-- set current buffer directory as working directory
+vim.api.nvim_set_keymap('n', '<leader>c', ':cd %:p:h<CR>', { noremap = true, silent = false })
+
+-- paste register 0
+vim.api.nvim_set_keymap('n', ',p', '"0p', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', ',P', '"0P', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('v', ',p', '"0p', { noremap = true, silent = false })
