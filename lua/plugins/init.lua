@@ -62,8 +62,8 @@ return require('packer').startup(function(use)
   --use 'hrsh7th/nvim-pasta'
   use 'ahmedkhalf/project.nvim'
   use 'nvim-lualine/lualine.nvim'
+  use {'ojroques/nvim-bufdel'}
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
-
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
     require('packer').sync()
