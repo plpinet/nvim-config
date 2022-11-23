@@ -4,7 +4,7 @@ vim.g.sonokai_better_performance = true
 
 -- gruvbox-material
 -- Available values: "hard", "medium"(default), "soft"
-vim.g.gruvbox_material_background = "medium"
+vim.g.gruvbox_material_background = "soft"
 vim.g.gruvbox_material_better_performance = true
 vim.g.gruvbox_material_transparent_background ="0"
 
@@ -21,4 +21,4 @@ vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
 vim.g.tokyonight_transparent = false
 
 
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme gruvbox-material]]
