@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
   use 'cocopon/iceberg.vim'
   use 'yunlingz/ci_dark'
   use 'olimorris/onedarkpro.nvim'
+  use 'towolf/vim-helm'
 
   -- Functionalities
 
@@ -59,7 +60,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
-  --use 'hrsh7th/nvim-pasta'
   use 'ahmedkhalf/project.nvim'
   use 'nvim-lualine/lualine.nvim'
   use {'ojroques/nvim-bufdel'}

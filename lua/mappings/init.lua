@@ -16,7 +16,7 @@ vim.api.nvim_set_keymap('n', '<leader>bb', ':Neotree toggle show buffers right<c
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>rg', ':Telescope live_grep<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>q', ':Telescope buffers sort_mru=true<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>q', ':Telescope buffers sort_mru=true ignore_current_buffer=true<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>h', ':Telescope help_tags<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>g', ':Telescope current_buffer_fuzzy_find<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ec', ':Telescope colorscheme<cr>', { noremap = true, silent = true })
@@ -24,10 +24,6 @@ vim.api.nvim_set_keymap('n', '<leader>ec', ':Telescope colorscheme<cr>', { norem
 -- easyalign
 vim.api.nvim_set_keymap('n', '<leader>a', '<Plug>(EasyAlign)', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<leader>a', '<Plug>(EasyAlign)', { noremap = true, silent = true })
-
--- nvim-pasta
--- vim.keymap.set({ 'n', 'x' }, 'p', require('pasta.mappings').p)
--- vim.keymap.set({ 'n', 'x' }, 'P', require('pasta.mappings').P)
 
 -- tabs
 vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<cr>', { noremap = true, silent = true })
@@ -58,9 +54,13 @@ vim.api.nvim_set_keymap('n', '<leader>l', ':Limelight!!<cr>', { noremap = true, 
 vim.api.nvim_set_keymap('n', '<leader><leader>', ':noh<cr>', { noremap = true, silent = true })
 
 -- set current buffer directory as working directory
-vim.api.nvim_set_keymap('n', '<leader>c', ':cd %:p:h<CR>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<leader>C', ':cd %:p:h<CR>', { noremap = true, silent = false })
 
 -- paste register 0
 vim.api.nvim_set_keymap('n', ',p', '"0p', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('n', ',P', '"0P', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('v', ',p', '"0p', { noremap = true, silent = false })
+
+-- center half page movements
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')

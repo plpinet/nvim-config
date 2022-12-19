@@ -14,11 +14,11 @@ vim.g.gruvbox_material_transparent_background ="0"
 vim.g.sonokai_transparent_background = "0"
 
 ---- Example config in Lua
-vim.g.tokyonight_style = "night"
+vim.g.tokyonight_style = "storm"
 vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
 vim.g.tokyonight_transparent = false
 
 
-vim.cmd[[colorscheme gruvbox-material]]
+vim.cmd[[colorscheme tokyonight]]
