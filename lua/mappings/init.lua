@@ -57,9 +57,9 @@ vim.api.nvim_set_keymap('n', '<leader><leader>', ':noh<cr>', { noremap = true, s
 vim.api.nvim_set_keymap('n', '<leader>C', ':cd %:p:h<CR>', { noremap = true, silent = false })
 
 -- paste register 0
-vim.api.nvim_set_keymap('n', ',p', '"0p', { noremap = true, silent = false })
-vim.api.nvim_set_keymap('n', ',P', '"0P', { noremap = true, silent = false })
-vim.api.nvim_set_keymap('v', ',p', '"0p', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<leader>p', '"0p', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<leader>P', '"0P', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('v', '<leader>p', '"0p', { noremap = true, silent = false })
 
 -- center half page movements
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
