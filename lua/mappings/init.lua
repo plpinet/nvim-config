@@ -28,7 +28,8 @@ vim.api.nvim_set_keymap('v', '<leader>a', '<Plug>(EasyAlign)', { noremap = true,
 -- tabs
 vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':bprevious<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>bd', ':BufDel<cr>', { noremap = true, silent = true })
+--vim.api.nvim_set_keymap('n', '<leader>bd', ':BufDel<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>bn', ':enew<cr>', { noremap = true, silent = true })
 
 -- splits

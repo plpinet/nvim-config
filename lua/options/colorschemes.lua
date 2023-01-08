@@ -21,4 +21,4 @@ vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
 vim.g.tokyonight_transparent = false
 
 
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme gruvbox-material]]
