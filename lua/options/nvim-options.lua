@@ -40,3 +40,7 @@ vim.cmd([[
   au BufNewFile,BufRead *.jenkins,*.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
   augroup END
 ]])
+
+vim.cmd([[
+  autocmd BufNewFile,BufRead *.tfvars :set filetype=terraform
+]])
