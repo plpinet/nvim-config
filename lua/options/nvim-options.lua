@@ -12,7 +12,7 @@ vim.cmd 'set hidden'
 vim.cmd 'set number relativenumber'
 vim.cmd 'set title'
 vim.cmd 'set completeopt=menu,menuone,noselect'
-vim.cmd 'set cursorline'
+--vim.cmd 'set cursorline'
 vim.cmd 'set splitbelow'
 vim.cmd 'set splitright'
 vim.cmd('filetype plugin indent on')
@@ -43,4 +43,5 @@ vim.cmd([[
 
 vim.cmd([[
   autocmd BufNewFile,BufRead *.tfvars :set filetype=terraform
+  autocmd FileType terraform setlocal commentstring=#\ %s
 ]])
