@@ -15,6 +15,7 @@ vim.api.nvim_set_keymap('n', '<leader>bb', ':Neotree toggle show buffers right<c
 -- telescope
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>s', ':Telescope git_status<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>rg', ':Telescope live_grep<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>q', ':Telescope buffers sort_mru=true ignore_current_buffer=true<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>h', ':Telescope help_tags<cr>', { noremap = true, silent = true })
@@ -28,8 +29,8 @@ vim.api.nvim_set_keymap('v', '<leader>a', '<Plug>(EasyAlign)', { noremap = true,
 -- tabs
 vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':bprevious<cr>', { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<leader>bd', ':BufDel<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>bd', ':BufDel<cr>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>bn', ':enew<cr>', { noremap = true, silent = true })
 
 -- splits
