@@ -16,6 +16,7 @@ vim.cmd 'set completeopt=menu,menuone,noselect'
 vim.cmd 'set splitbelow'
 vim.cmd 'set splitright'
 vim.cmd('filetype plugin indent on')
+vim.cmd('hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg')
 
 vim.opt.termguicolors = true
 vim.wo.fillchars='eob: '
