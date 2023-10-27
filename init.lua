@@ -19,6 +19,7 @@ require('plugins._nvim-neo-tree')
 require('plugins._nvim-indent-blankline')
 require('plugins._nvim-telescope')
 require("bufferline").setup{}
+require("mason").setup()
 
 -- mappings
 require('mappings')

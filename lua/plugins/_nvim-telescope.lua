@@ -5,11 +5,11 @@ require("telescope").setup {
     layout_config = {
       horizontal = { width = 0.90 }
     },
-    borderchars = {
-      prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
-      results = { " " },
-      preview = { " " },
-    }
+    -- borderchars = {
+    --   prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+    --   results = { " " },
+    --   preview = { " " },
+    -- }
   },
   pickers = {
     buffers = {

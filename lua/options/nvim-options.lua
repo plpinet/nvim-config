@@ -12,11 +12,12 @@ vim.cmd 'set hidden'
 vim.cmd 'set number relativenumber'
 vim.cmd 'set title'
 vim.cmd 'set completeopt=menu,menuone,noselect'
+-- vim.cmd 'set cc=80'
 --vim.cmd 'set cursorline'
 vim.cmd 'set splitbelow'
 vim.cmd 'set splitright'
 vim.cmd('filetype plugin indent on')
-vim.cmd('hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg')
+-- vim.cmd('hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg')
 
 vim.opt.termguicolors = true
 vim.wo.fillchars='eob: '
@@ -39,6 +40,7 @@ vim.cmd([[
   augroup set_jenkins_groovy
   au!
   au BufNewFile,BufRead *.jenkins,*.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
+  au FileType groovy setlocal commentstring=//\ %s
   augroup END
 ]])
 

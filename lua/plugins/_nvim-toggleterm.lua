@@ -27,8 +27,8 @@ require("toggleterm").setup {
     -- not natively supported but implemented in this plugin.
     border = 'curved', -- 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
     go_back = 0, --By default focus is returned to the original window after executing the command. Set to zero to disable this behavior
-    width = 120,
-    height = 35,
+    width = 170,
+    height = 45,
     winblend = 3,
     highlights = {
       border = "Normal",

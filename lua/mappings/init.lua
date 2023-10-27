@@ -10,14 +10,15 @@ vim.api.nvim_set_keymap('n', '<leader>w', ':TagbarToggle<cr>', { noremap = true,
 -- neotree
 vim.api.nvim_set_keymap('n', '<leader>ee', ':Neotree source=filesystem reveal=true position=left<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>o', ':Neotree float reveal=true<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>bb', ':Neotree toggle show buffers right<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>bb', ':Neotree toggle show buffers left<cr>', { noremap = true, silent = true })
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>s', ':Telescope git_status<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>rg', ':Telescope live_grep<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>q', ':Telescope buffers sort_mru=true ignore_current_buffer=true<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>q', ':Telescope buffers sort_mru=true<cr>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>q', ':Telescope buffers sort_mru=true ignore_current_buffer=true<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>h', ':Telescope help_tags<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>g', ':Telescope current_buffer_fuzzy_find<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ec', ':Telescope colorscheme<cr>', { noremap = true, silent = true })
@@ -66,3 +67,6 @@ vim.api.nvim_set_keymap('v', '<leader>p', '"0p', { noremap = true, silent = fals
 -- center half page movements
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+-- copy buffer path to register
+vim.api.nvim_set_keymap('n', '<leader>c', ":let @+=expand('%:p')<CR>", { noremap = true, silent = false })

@@ -28,6 +28,9 @@ return require('packer').startup(function(use)
   use 'yunlingz/ci_dark'
   use 'olimorris/onedarkpro.nvim'
   use 'towolf/vim-helm'
+  use 'rebelot/kanagawa.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use 'xiantang/darcula-dark.nvim'
 
   -- Functionalities
 
@@ -35,6 +38,7 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  use 'christoomey/vim-tmux-navigator'
   use 'martinda/Jenkinsfile-vim-syntax'
   use 'nvim-lua/plenary.nvim'
   use 'MunifTanjim/nui.nvim'
@@ -66,6 +70,11 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use {'ojroques/nvim-bufdel'}
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+  use {'iamcco/markdown-preview.nvim'}
+  use {
+      "williamboman/mason.nvim",
+      run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+  }
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
     require('packer').sync()
