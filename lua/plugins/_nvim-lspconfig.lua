@@ -41,6 +41,10 @@ require('lspconfig')['tsserver'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
+require('lspconfig')['gopls'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
 require('lspconfig')['terraformls'].setup{
     on_attach = on_attach,
     flags = lsp_flags,

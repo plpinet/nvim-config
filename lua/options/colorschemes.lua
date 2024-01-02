@@ -7,7 +7,7 @@ vim.g.sonokai_transparent_background = "1"
 -- Available values: "hard", "medium"(default), "soft"
 vim.g.gruvbox_material_background = "medium"
 vim.g.gruvbox_material_better_performance = true
-vim.g.gruvbox_material_transparent_background ="1"
+vim.g.gruvbox_material_transparent_background ="0"
 -- Available values:   'material', 'mix', 'original'
 vim.g.gruvbox_material_foreground = "mix"
 
@@ -22,14 +22,9 @@ local colors = require("gruvbox-baby.colors").config()
 vim.g.gruvbox_baby_highlights = {Normal = {fg = colors.milk}}
 
 ---- tokyonight
--- vim.g.tokyonight_style = "night"
--- vim.g.tokyonight_italic_functions = true
--- vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
--- vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
--- vim.g.tokyonight_transparent = true
 require("tokyonight").setup({
   style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-  transparent = true, -- Enable this to disable setting the background color
+  transparent = false, -- Enable this to disable setting the background color
   styles = {
     -- Style to be applied to different syntax groups
     -- Value is any valid attr-list value for `:help nvim_set_hl`
