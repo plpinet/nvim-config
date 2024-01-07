@@ -41,6 +41,13 @@ return require('packer').startup(function(use)
       require('plugins._nvim-treesitter')
     end
   }
+  use {
+    'ray-x/go.nvim',
+    requires = 'ray-x/guihua.lua',
+    config = function()
+      require('plugins._nvim-go')
+    end
+  }
   use 'christoomey/vim-tmux-navigator'
   use 'martinda/Jenkinsfile-vim-syntax'
   use 'nvim-lua/plenary.nvim'
@@ -74,6 +81,7 @@ return require('packer').startup(function(use)
   }
   use 'majutsushi/tagbar'
   use 'tpope/vim-commentary'
+  use 'rcarriga/nvim-notify'
   use 'scrooloose/nerdcommenter'
   use 'mhinz/vim-signify'
   use {
