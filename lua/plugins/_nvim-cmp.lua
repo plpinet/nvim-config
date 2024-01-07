@@ -18,6 +18,12 @@ cmp.setup({
       side_padding = 1,
     }
   },
+  confirmation = {
+    completeopt = { 'menu,menuone,noinsert'}
+  },
+  preselect = {
+    cmp.PreselectMode.None
+  },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
