@@ -48,3 +48,10 @@ vim.cmd([[
   autocmd BufNewFile,BufRead *.tfvars :set filetype=terraform
   autocmd FileType terraform setlocal commentstring=#\ %s
 ]])
+
+vim.cmd[[
+  augroup GoSettings
+    autocmd!
+    autocmd FileType go setlocal tabstop=4 softtabstop=4 shiftwidth=4
+  augroup END
+]]
