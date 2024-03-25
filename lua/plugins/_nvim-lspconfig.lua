@@ -45,7 +45,7 @@ require('lspconfig')['gopls'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
-require('lspconfig')['terraformls'].setup{
+require('lspconfig')['helm_ls'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
