@@ -148,6 +148,18 @@ return require('packer').startup(function(use)
       require("mason").setup()
     end
   }
+  use({
+    "jackMort/ChatGPT.nvim",
+      config = function()
+        require('plugins._nvim-chatgpt')
+      end,
+      requires = {
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+        "folke/trouble.nvim",
+        "nvim-telescope/telescope.nvim"
+      }
+  })
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
     require('packer').sync()
