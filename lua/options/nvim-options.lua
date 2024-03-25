@@ -4,7 +4,7 @@ vim.cmd 'set clipboard=unnamedplus'
 vim.cmd 'set incsearch ignorecase smartcase hlsearch'
 vim.cmd 'set wildmode=longest,list,full wildmenu'
 vim.cmd 'set ruler laststatus=2 showcmd showmode'
-vim.cmd 'set list listchars=trail:»,tab:»-'
+-- vim.cmd 'set list listchars=trail:»,tab:»-'
 vim.cmd 'set wrap breakindent'
 vim.cmd 'set encoding=utf-8'
 vim.cmd 'set textwidth=0'
@@ -52,6 +52,6 @@ vim.cmd([[
 vim.cmd[[
   augroup GoSettings
     autocmd!
-    autocmd FileType go setlocal tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd FileType go setlocal tabstop=8 softtabstop=8 shiftwidth=8
   augroup END
 ]]
