@@ -1,7 +1,7 @@
 local actions = require "telescope.actions"
 require("telescope").setup {
   defaults = {
-    layout_strategy = 'vertical',
+    layout_strategy = 'horizontal',
     layout_config = {
       horizontal = { width = 0.90 }
     },
@@ -15,10 +15,10 @@ require("telescope").setup {
     buffers = {
       mappings = {
         n = {
-          ["<C-r>"] = actions.delete_buffer
+          ["<C-w>"] = actions.delete_buffer
         },
         i = {
-          ["<C-r>"] = actions.delete_buffer
+          ["<C-w>"] = actions.delete_buffer
         }
       }
     },
