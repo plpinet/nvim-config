@@ -70,3 +70,6 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 -- copy buffer path to register
 vim.api.nvim_set_keymap('n', '<leader>c', ":let @+=expand('%:p')<CR>", { noremap = true, silent = false })
+
+-- helpers
+vim.api.nvim_set_keymap('n', '<leader>H', ":%!helm install --dry-run myrelease .<CR>", { noremap = true, silent = true })
