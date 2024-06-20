@@ -1,13 +1,13 @@
 -- sonokai
 vim.g.sonokai_style = "maia"
 vim.g.sonokai_better_performance = true
-vim.g.sonokai_transparent_background = "1"
+vim.g.sonokai_transparent_background = "0"
 
 -- gruvbox-material
 -- Available values: "hard", "medium"(default), "soft"
-vim.g.gruvbox_material_background = "medium"
+vim.g.gruvbox_material_background = "hard"
 vim.g.gruvbox_material_better_performance = true
-vim.g.gruvbox_material_transparent_background = "1"
+vim.g.gruvbox_material_transparent_background = "0"
 -- Available values:   'material', 'mix', 'original'
 vim.g.gruvbox_material_foreground = "mix"
 
@@ -23,8 +23,8 @@ vim.g.gruvbox_baby_highlights = {Normal = {fg = colors.milk}}
 
 ---- tokyonight
 require("tokyonight").setup({
-  style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-  transparent = true, -- Enable this to disable setting the background color
+  style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+  transparent = false, -- Enable this to disable setting the background color
   styles = {
     -- Style to be applied to different syntax groups
     -- Value is any valid attr-list value for `:help nvim_set_hl`
@@ -51,6 +51,16 @@ require("catppuccin").setup({
 -- kanagawa
 require('kanagawa').setup({
     transparent = false,
+    globalStatus = true,
+    colors = {
+      theme = {
+        all = {
+          ui = {
+            bg_gutter = "none",
+          },
+        },
+      },
+    },
 })
 
-vim.cmd[[colorscheme gruvbox-material]]
+vim.cmd[[colorscheme kanagawa]]

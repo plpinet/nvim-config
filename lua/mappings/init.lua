@@ -14,7 +14,7 @@ vim.api.nvim_set_keymap('n', '<leader>bb', ':Neotree toggle show buffers left<cr
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope projects<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>s', ':Telescope git_status<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>rg', ':Telescope live_grep<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>q', ':Telescope buffers sort_mru=true<cr>', { noremap = true, silent = true })
@@ -65,8 +65,10 @@ vim.api.nvim_set_keymap('n', '<leader>P', '"0P', { noremap = true, silent = fals
 vim.api.nvim_set_keymap('v', '<leader>p', '"0p', { noremap = true, silent = false })
 
 -- center half page movements
-vim.keymap.set('n', '<C-d>', '<C-d>zz')
-vim.keymap.set('n', '<C-u>', '<C-u>zz')
+-- vim.keymap.set('n', '<C-d>', '<C-d>zz')
+-- vim.keymap.set('n', '<C-u>', '<C-u>zz')
+-- vim.keymap.set('n', '<C-d>', ":smoothie#do("\<C-D\>")zz <CR>")
+-- vim.keymap.set('n', '<C-u>', ":smoothie#do("\<C-D\>")zz <CR>")
 
 -- copy buffer path to register
 vim.api.nvim_set_keymap('n', '<leader>c', ":let @+=expand('%:p')<CR>", { noremap = true, silent = false })

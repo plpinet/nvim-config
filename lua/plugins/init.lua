@@ -74,7 +74,8 @@ return require('packer').startup(function(use)
   use 'tpope/vim-sensible'
   use 'tpope/vim-surround'
   use {
-    'kyazdani42/nvim-web-devicons',
+    -- 'nvim-tree/nvim-web-devicons',
+    'nvim-tree/nvim-web-devicons',
     config = function()
       require('plugins._nvim-web-devicons')
     end
@@ -124,7 +125,6 @@ return require('packer').startup(function(use)
       require('plugins._nvim-cmp')
     end
   }
-  use 'ahmedkhalf/project.nvim'
   use {
     'nvim-lualine/lualine.nvim',
     config = function()
@@ -135,7 +135,7 @@ return require('packer').startup(function(use)
   use {
     'akinsho/bufferline.nvim',
     tag = "v2.*",
-    requires = 'kyazdani42/nvim-web-devicons',
+    requires = 'nvim-tree/nvim-web-devicons',
     config = function()
       require("bufferline").setup{}
     end
@@ -148,18 +148,50 @@ return require('packer').startup(function(use)
       require("mason").setup()
     end
   }
+  -- use {
+  --   "ahmedkhalf/project.nvim",
+  --   config = function()
+  --     require("project_nvim").setup {
+  --     }
+  --   end
+  -- }
   use({
-    "jackMort/ChatGPT.nvim",
-      config = function()
-        require('plugins._nvim-chatgpt')
-      end,
-      requires = {
-        "MunifTanjim/nui.nvim",
-        "nvim-lua/plenary.nvim",
-        "folke/trouble.nvim",
-        "nvim-telescope/telescope.nvim"
-      }
+    "epwalsh/obsidian.nvim",
+    tag = "*",  -- recommended, use latest release instead of latest commit
+    requires = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+
+      -- see below for full list of optional dependencies 👇
+    },
+    config = function()
+      require("obsidian").setup({
+        workspaces = {
+          {
+            name = "main",
+            path = "~/Documents/Obsidian Vault",
+          },
+        },
+        follow_url_func = function(url)
+          -- Open the URL in the default web browser.
+          -- vim.fn.jobstart({"open", url})  -- Mac OS
+          vim.fn.jobstart({"xdg-open", url})  -- linux
+        end,
+      })
+    end,
   })
+  -- use({
+  --   "jackMort/ChatGPT.nvim",
+  --     config = function()
+  --       require('plugins._nvim-chatgpt')
+  --     end,
+  --     requires = {
+  --       "MunifTanjim/nui.nvim",
+  --       "nvim-lua/plenary.nvim",
+  --       "folke/trouble.nvim",
+  --       "nvim-telescope/telescope.nvim"
+  --     }
+  -- })
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
     require('packer').sync()
