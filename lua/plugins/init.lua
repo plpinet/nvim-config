@@ -30,7 +30,18 @@ return require('packer').startup(function(use)
   use 'towolf/vim-helm'
   use 'rebelot/kanagawa.nvim'
   use { "catppuccin/nvim", as = "catppuccin" }
-  use 'xiantang/darcula-dark.nvim'
+  -- use {
+  --   'norcalli/nvim-colorizer.lua',
+  --   config = function()
+  --     require 'colorizer'.setup()
+  --   end
+  -- }
+  use {
+    "loctvl842/monokai-pro.nvim",
+    config = function()
+      require("monokai-pro").setup()
+    end
+  }
 
   -- Functionalities
 
@@ -51,11 +62,35 @@ return require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator'
   use 'martinda/Jenkinsfile-vim-syntax'
   use 'nvim-lua/plenary.nvim'
+  use 'NoahTheDuke/vim-just'
   use 'MunifTanjim/nui.nvim'
   use {
     'nvim-neo-tree/neo-tree.nvim',
     config = function()
       require('plugins._nvim-neo-tree')
+    end
+  }
+  use {
+    'folke/noice.nvim',
+    config = function()
+      require("noice").setup({
+        lsp = {
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+          },
+        },
+        -- you can enable a preset for easier configuration
+        presets = {
+          bottom_search = true, -- use a classic bottom cmdline for search
+          command_palette = true, -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = false, -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = false, -- add a border to hover docs and signature help
+        },
+      })
     end
   }
   use {
@@ -71,6 +106,13 @@ return require('packer').startup(function(use)
     end
   }
   use 'tpope/vim-fugitive'
+  use "sindrets/diffview.nvim"
+  -- use {
+  --   'NeogitOrg/neogit',
+  --   config = function()
+  --     require("neogit").setup()
+  --   end
+  -- }
   use 'tpope/vim-sensible'
   use 'tpope/vim-surround'
   use {
@@ -134,10 +176,10 @@ return require('packer').startup(function(use)
   use {'ojroques/nvim-bufdel'}
   use {
     'akinsho/bufferline.nvim',
-    tag = "v2.*",
+    -- tag = "v2.*",
     requires = 'nvim-tree/nvim-web-devicons',
     config = function()
-      require("bufferline").setup{}
+      require("plugins._nvim-bufferline")
     end
   }
   use {'iamcco/markdown-preview.nvim'}
@@ -148,13 +190,12 @@ return require('packer').startup(function(use)
       require("mason").setup()
     end
   }
-  -- use {
-  --   "ahmedkhalf/project.nvim",
-  --   config = function()
-  --     require("project_nvim").setup {
-  --     }
-  --   end
-  -- }
+  use {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("plugins._nvim-projects")
+    end
+  }
   use({
     "epwalsh/obsidian.nvim",
     tag = "*",  -- recommended, use latest release instead of latest commit
@@ -180,7 +221,35 @@ return require('packer').startup(function(use)
       })
     end,
   })
-  -- use({
+  -- use {
+  --   "yetone/avante.nvim",
+  --   build = "make BUILD_FROM_SOURCE=true",
+  --   lazy = false,
+  --   version = false,
+  --   BUILD_FROM_SOURCE = true,
+  --   config = function()
+  --     require("avante_lib").load()
+  --     require("avante").setup()
+  --   end,
+  --   requires = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "stevearc/dressing.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "MunifTanjim/nui.nvim",
+  --     --- The below dependencies are optional,
+  --     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+  --     "HakonHarnes/img-clip.nvim",
+  --   },
+  -- }
+  use 'dhruvasagar/vim-table-mode'
+  use({
+    "kdheepak/lazygit.nvim",
+    -- optional for floating window border decoration
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
+  })
+    -- use({
   --   "jackMort/ChatGPT.nvim",
   --     config = function()
   --       require('plugins._nvim-chatgpt')

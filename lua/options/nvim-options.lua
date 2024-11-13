@@ -12,7 +12,7 @@ vim.cmd 'set hidden'
 vim.cmd 'set number relativenumber'
 vim.cmd 'set title'
 vim.cmd 'set completeopt=menu,menuone,noselect'
-vim.cmd 'set conceallevel=1'
+vim.cmd 'set conceallevel=0'
 -- vim.cmd 'set cc=80'
 --vim.cmd 'set cursorline'
 vim.cmd 'set splitbelow'
@@ -34,6 +34,14 @@ function! TrimWhitespace()
     let l:save = winsaveview()
     %s/\\\@<!\s\+$//e
     call winrestview(l:save)
+endfunction
+]])
+
+vim.cmd([[
+function! OpenHelmTemplate()
+  vnew
+  read !helm template .
+  setlocal filetype=yaml
 endfunction
 ]])
 

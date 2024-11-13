@@ -5,15 +5,20 @@ vim.g.sonokai_transparent_background = "0"
 
 -- gruvbox-material
 -- Available values: "hard", "medium"(default), "soft"
-vim.g.gruvbox_material_background = "hard"
+vim.g.gruvbox_material_background = "medium"
 vim.g.gruvbox_material_better_performance = true
-vim.g.gruvbox_material_transparent_background = "0"
+vim.g.gruvbox_material_transparent_background = "1"
+vim.g.gruvbox_material_enable_italic = "1"
+-- vim.g.gruvbox_material_menu_selection_background = "orange"
 -- Available values:   'material', 'mix', 'original'
-vim.g.gruvbox_material_foreground = "mix"
+vim.g.gruvbox_material_foreground = "material"
+-- vim.g.gruvbox_material_float_style = "dim"
+-- vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
+-- vim.g.gruvbox_material_colors_override = { aqua = { '#e78a4e', '100' } }
 
 -- gruvbox-baby
 vim.g.gruvbox_baby_function_style = "NONE"
-vim.g.gruvbox_baby_background_color = "medium"
+vim.g.gruvbox_baby_background_color = "hard"
 vim.g.gruvbox_baby_keyword_style = "italic"
 vim.g.gruvbox_baby_highlights = {Normal = {fg = "#123123", bg = "NONE", style="underline"}}
 vim.g.gruvbox_baby_telescope_theme = 0
@@ -46,6 +51,7 @@ require("tokyonight").setup({
 -- catpuccin
 require("catppuccin").setup({
     transparent_background = false,
+    flavour = "macchiato", -- latte, frappe, macchiato, mocha
 })
 
 -- kanagawa
@@ -63,4 +69,4 @@ require('kanagawa').setup({
     },
 })
 
-vim.cmd[[colorscheme kanagawa]]
+vim.cmd[[colorscheme catppuccin]]

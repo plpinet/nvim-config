@@ -10,7 +10,7 @@ vim.api.nvim_set_keymap('n', '<leader>w', ':TagbarToggle<cr>', { noremap = true,
 -- neotree
 vim.api.nvim_set_keymap('n', '<leader>ee', ':Neotree source=filesystem reveal=true position=left<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>o', ':Neotree float reveal=true<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>bb', ':Neotree toggle show buffers left<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>bb', ':Neotree right buffers<cr>', { noremap = true, silent = true })
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<cr>', { noremap = true, silent = true })
@@ -48,7 +48,8 @@ vim.api.nvim_set_keymap('n', '<leader>rh', ':vertical resize -5<cr>', { noremap 
 vim.api.nvim_set_keymap('n', '<leader>t', ':call TrimWhitespace()<cr>', { noremap = true, silent = true })
 
 -- lazygit
-vim.api.nvim_set_keymap('n', '<leader>G', ':lua _lazygit_toggle()<cr>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>G', ':lua _lazygit_toggle()<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>G', ':LazyGit<cr>', { noremap = true, silent = true })
 
 -- limelight
 vim.api.nvim_set_keymap('n', '<leader>l', ':Limelight!!<cr>', { noremap = true, silent = true })
@@ -74,4 +75,4 @@ vim.api.nvim_set_keymap('v', '<leader>p', '"0p', { noremap = true, silent = fals
 vim.api.nvim_set_keymap('n', '<leader>c', ":let @+=expand('%:p')<CR>", { noremap = true, silent = false })
 
 -- helpers
-vim.api.nvim_set_keymap('n', '<leader>H', ":%!helm install --dry-run myrelease .<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>H', ":call OpenHelmTemplate()<CR>", { noremap = true, silent = true })
