@@ -14,7 +14,7 @@ vim.cmd 'set title'
 vim.cmd 'set completeopt=menu,menuone,noselect'
 vim.cmd 'set conceallevel=0'
 -- vim.cmd 'set cc=80'
---vim.cmd 'set cursorline'
+vim.cmd 'set cursorline'
 vim.cmd 'set splitbelow'
 vim.cmd 'set splitright'
 vim.cmd('filetype plugin indent on')
