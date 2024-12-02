@@ -4,7 +4,9 @@ vim.cmd 'set clipboard=unnamedplus'
 vim.cmd 'set incsearch ignorecase smartcase hlsearch'
 vim.cmd 'set wildmode=longest,list,full wildmenu'
 vim.cmd 'set ruler laststatus=2 showcmd showmode'
+
 -- vim.cmd 'set list listchars=trail:»,tab:»-'
+
 vim.cmd 'set wrap breakindent'
 vim.cmd 'set encoding=utf-8'
 vim.cmd 'set textwidth=0'

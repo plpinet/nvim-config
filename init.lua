@@ -1,5 +1,4 @@
--- plugins (packer)
-require('plugins')
+require("config.lazy")
 
 -- colorschemes options
 require('options.colorschemes')
