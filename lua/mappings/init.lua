@@ -23,6 +23,9 @@ vim.api.nvim_set_keymap('n', '<leader>h', ':Telescope help_tags<cr>', { noremap 
 vim.api.nvim_set_keymap('n', '<leader>g', ':Telescope current_buffer_fuzzy_find<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ec', ':Telescope colorscheme<cr>', { noremap = true, silent = true })
 
+-- gitbrowse
+vim.api.nvim_set_keymap('n', '<leader>gb', ':lua require("snacks").gitbrowse()<CR>', { noremap = true, silent = false })
+
 -- easyalign
 vim.api.nvim_set_keymap('n', '<leader>a', '<Plug>(EasyAlign)', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<leader>a', '<Plug>(EasyAlign)', { noremap = true, silent = true })

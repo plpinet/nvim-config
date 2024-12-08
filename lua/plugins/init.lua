@@ -27,6 +27,7 @@ return {
   { "catppuccin/nvim", as = "catppuccin" },
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   { 'sainnhe/gruvbox-material', lazy = false, priority = 1000, },
+  { "folke/snacks.nvim" },
 
   'christoomey/vim-tmux-navigator',
   'martinda/Jenkinsfile-vim-syntax',
@@ -72,6 +73,18 @@ return {
       }
     end
   },
-  'williamboman/mason-lspconfig.nvim',
-  'neovim/nvim-lspconfig',
+  {
+    'williamboman/mason-lspconfig.nvim',
+    dependencies = {
+      {
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+          library = {
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          },
+        },
+      },
+    },
+  }
 }
