@@ -52,7 +52,7 @@ require("tokyonight").setup({
 -- catpuccin
 require("catppuccin").setup({
     transparent_background = false,
-    flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    flavour = "mocha", -- latte, frappe, macchiato, mocha
 })
 
 -- kanagawa
