@@ -26,9 +26,14 @@ return {
             }
           }
         },
-        --find_files = {
-          --find_command = { "rg", "--ignore", "-L", "--hidden", "--files" },
-        --}
+        find_files = {
+          find_command = { "rg", "--ignore", "-L", "--hidden", "--files", "--glob", "!.git" },
+        },
+        live_grep = {
+          additional_args = function()
+            return {"--ignore", "--hidden", "--glob", "!.git"}
+          end
+        }
       }
     }
   end
