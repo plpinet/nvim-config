@@ -13,5 +13,8 @@ return {
         path = "~/Documents/Obsidian Vault",
       },
     },
+    ui = {
+      enable = false,
+    },
   },
 }
