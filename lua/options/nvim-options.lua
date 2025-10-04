@@ -31,6 +31,14 @@ vim.g.tagbar_width = 30
 vim.g.limelight_conceal_ctermfg = 'gray'
 vim.g.limelight_conceal_guifg = 'gray'
 
+vim.opt.listchars = {
+  space = ' ',
+  nbsp = '␣',  -- This highlights non-breaking spaces
+  tab = '→ ',
+  trail = '•',
+}
+vim.opt.list = true
+
 vim.cmd([[
 function! TrimWhitespace()
     let l:save = winsaveview()

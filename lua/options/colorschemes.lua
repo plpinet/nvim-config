@@ -7,7 +7,7 @@ vim.g.sonokai_transparent_background = "0"
 -- Available values: "hard", "medium"(default), "soft"
 vim.g.gruvbox_material_background = "medium"
 vim.g.gruvbox_material_better_performance = true
-vim.g.gruvbox_material_transparent_background = "1"
+vim.g.gruvbox_material_transparent_background = "0"
 vim.g.gruvbox_material_enable_italic = "0"
 vim.g.gruvbox_material_menu_selection_background = "orange"
 vim.g.gruvbox_material_show_eob = "0"
@@ -70,4 +70,4 @@ require('kanagawa').setup({
     },
 })
 
-vim.cmd[[colorscheme gruvbox-material]]
+vim.cmd[[colorscheme catppuccin]]

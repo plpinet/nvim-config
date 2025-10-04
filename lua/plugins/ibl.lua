@@ -8,6 +8,10 @@ return {
         remove_blankline_trail = false,
       },
       scope = { enabled = false },
+      exclude = {
+        filetypes = { "terminal" },
+        buftypes = { "terminal" },
+      },
     }
   end
 }
