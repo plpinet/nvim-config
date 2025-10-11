@@ -29,7 +29,7 @@ return {
   { 'sainnhe/gruvbox-material', lazy = false, priority = 1000, },
   { "folke/snacks.nvim" },
 
-  'christoomey/vim-tmux-navigator',
+  -- 'christoomey/vim-tmux-navigator',
   'martinda/Jenkinsfile-vim-syntax',
   'nvim-lua/plenary.nvim',
   'NoahTheDuke/vim-just',
