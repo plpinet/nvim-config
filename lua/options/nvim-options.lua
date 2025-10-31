@@ -4,9 +4,6 @@ vim.cmd 'set clipboard=unnamedplus'
 vim.cmd 'set incsearch ignorecase smartcase hlsearch'
 vim.cmd 'set wildmode=longest,list,full wildmenu'
 vim.cmd 'set ruler laststatus=2 showcmd showmode'
-
--- vim.cmd 'set list listchars=trail:»,tab:»-'
-
 vim.cmd 'set wrap breakindent'
 vim.cmd 'set encoding=utf-8'
 vim.cmd 'set textwidth=0'
@@ -15,12 +12,11 @@ vim.cmd 'set number relativenumber'
 vim.cmd 'set title'
 vim.cmd 'set completeopt=menu,menuone,noselect'
 vim.cmd 'set conceallevel=0'
--- vim.cmd 'set cc=80'
 vim.cmd 'set cursorline'
 vim.cmd 'set splitbelow'
 vim.cmd 'set splitright'
 vim.cmd('filetype plugin indent on')
--- vim.cmd('hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg')
+-- vim.cmd 'set cc=80'
 
 vim.o.guifont = "JetBrainsMono Nerd Font:h12"
 vim.opt.termguicolors = true
@@ -44,14 +40,6 @@ function! TrimWhitespace()
     let l:save = winsaveview()
     %s/\\\@<!\s\+$//e
     call winrestview(l:save)
-endfunction
-]])
-
-vim.cmd([[
-function! OpenHelmTemplate()
-  vnew
-  read !helm template .
-  setlocal filetype=yaml
 endfunction
 ]])
 

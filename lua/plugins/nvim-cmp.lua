@@ -9,9 +9,6 @@ return {
       snippet = {
         expand = function(args)
           vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-          -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-          -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-          -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
         end,
       },
       window = {
@@ -32,20 +29,6 @@ return {
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-        -- ['<Tab>'] = function(fallback)
-        --   if cmp.visible() then
-        --     cmp.select_next_item()
-        --   else
-        --     fallback()
-        --   end
-        -- end,
-        -- ['<S-Tab>'] = function(fallback)
-        --   if cmp.visible() then
-        --     cmp.select_prev_item()
-        --   else
-        --     fallback()
-        --   end
-        -- end,
       }),
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
