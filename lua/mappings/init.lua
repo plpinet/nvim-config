@@ -12,20 +12,6 @@ vim.api.nvim_set_keymap('n', '<leader>ee', ':Neotree source=filesystem reveal=tr
 vim.api.nvim_set_keymap('n', '<leader>o', ':Neotree float reveal=true<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>bb', ':Neotree right buffers<cr>', { noremap = true, silent = true })
 
--- telescope
-vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope projects<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>s', ':Telescope git_status<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>rg', ':Telescope live_grep<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>q', ':Telescope buffers sort_mru=true<cr>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>q', ':Telescope buffers sort_mru=true ignore_current_buffer=true<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>h', ':Telescope help_tags<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>g', ':Telescope current_buffer_fuzzy_find<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ec', ':Telescope colorscheme<cr>', { noremap = true, silent = true })
-
--- gitbrowse
-vim.api.nvim_set_keymap('n', '<leader>gb', ':lua require("snacks").gitbrowse()<CR>', { noremap = true, silent = false })
-
 -- easyalign
 vim.api.nvim_set_keymap('n', '<leader>a', '<Plug>(EasyAlign)', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<leader>a', '<Plug>(EasyAlign)', { noremap = true, silent = true })
@@ -34,7 +20,6 @@ vim.api.nvim_set_keymap('v', '<leader>a', '<Plug>(EasyAlign)', { noremap = true,
 vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':bprevious<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>bd', ':BufDel<cr>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>bn', ':enew<cr>', { noremap = true, silent = true })
 
 -- splits
@@ -50,10 +35,6 @@ vim.api.nvim_set_keymap('n', '<leader>rh', ':vertical resize -5<cr>', { noremap 
 -- TrimWhitespace
 vim.api.nvim_set_keymap('n', '<leader>t', ':call TrimWhitespace()<cr>', { noremap = true, silent = true })
 
--- lazygit
--- vim.api.nvim_set_keymap('n', '<leader>G', ':lua _lazygit_toggle()<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>G', ':LazyGit<cr>', { noremap = true, silent = true })
-
 -- limelight
 vim.api.nvim_set_keymap('n', '<leader>l', ':Limelight!!<cr>', { noremap = true, silent = true })
 
@@ -68,14 +49,5 @@ vim.api.nvim_set_keymap('n', '<leader>p', '"0p', { noremap = true, silent = fals
 vim.api.nvim_set_keymap('n', '<leader>P', '"0P', { noremap = true, silent = false })
 vim.api.nvim_set_keymap('v', '<leader>p', '"0p', { noremap = true, silent = false })
 
--- center half page movements
--- vim.keymap.set('n', '<C-d>', '<C-d>zz')
--- vim.keymap.set('n', '<C-u>', '<C-u>zz')
--- vim.keymap.set('n', '<C-d>', ":smoothie#do("\<C-D\>")zz <CR>")
--- vim.keymap.set('n', '<C-u>', ":smoothie#do("\<C-D\>")zz <CR>")
-
 -- copy buffer path to register
 vim.api.nvim_set_keymap('n', '<leader>c', ":let @+=expand('%:p')<CR>", { noremap = true, silent = false })
-
--- helpers
-vim.api.nvim_set_keymap('n', '<leader>H', ":call OpenHelmTemplate()<CR>", { noremap = true, silent = true })

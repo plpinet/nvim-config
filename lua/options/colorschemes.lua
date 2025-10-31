@@ -13,9 +13,6 @@ vim.g.gruvbox_material_menu_selection_background = "orange"
 vim.g.gruvbox_material_show_eob = "0"
 -- Available values:   'material', 'mix', 'original'
 vim.g.gruvbox_material_foreground = "material"
--- vim.g.gruvbox_material_float_style = "dim"
--- vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
--- vim.g.gruvbox_material_colors_override = { aqua = { '#e78a4e', '100' } }
 
 -- gruvbox-baby
 vim.g.gruvbox_baby_function_style = "NONE"
