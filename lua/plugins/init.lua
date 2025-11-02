@@ -41,7 +41,6 @@ return {
   'rcarriga/nvim-notify',
   'scrooloose/nerdcommenter',
   'mhinz/vim-signify',
-  'windwp/nvim-autopairs',
   'junegunn/vim-easy-align',
   'psliwka/vim-smoothie',
   'djoshea/vim-autoread',
