@@ -8,6 +8,9 @@ return {
         enabled = false,
       },
     },
+    nes = {
+      enabled = false,
+    }
   },
   -- stylua: ignore
   keys = {
