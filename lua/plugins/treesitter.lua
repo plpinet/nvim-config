@@ -10,7 +10,7 @@ return {
                                "javascript", "json", "json5", "make", "markdown",
                                "markdown_inline", "perl", "php", "python", "regex",
                                "ruby", "vim", "vimdoc", "yaml", "typescript",
-                               "terraform", "hcl"
+                               "terraform", "hcl", "starlark"
                              },
           sync_install = false,
           highlight = {

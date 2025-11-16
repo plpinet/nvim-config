@@ -44,22 +44,53 @@ endfunction
 ]])
 
 -- autocommands
-vim.cmd([[
-  augroup set_jenkins_groovy
-  au!
-  au BufNewFile,BufRead *.jenkins,*.jenkinsfile,*.Jenkinsfile,Jenkinsfile,jenkinsfile setf groovy
-  au FileType groovy setlocal commentstring=//\ %s
-  augroup END
-]])
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+  pattern = {"*.jenkins", "*.jenkinsfile", "*.Jenkinsfile", "Jenkinsfile", "jenkinsfile"},
+  callback = function()
+    vim.bo.filetype = "groovy"
+  end,
+})
 
-vim.cmd([[
-  autocmd BufNewFile,BufRead *.tfvars :set filetype=terraform
-  autocmd FileType terraform setlocal commentstring=#\ %s
-]])
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "groovy",
+  callback = function()
+    vim.bo.commentstring = "// %s"
+  end,
+})
 
-vim.cmd[[
-  augroup GoSettings
-    autocmd!
-    autocmd FileType go setlocal tabstop=8 softtabstop=8 shiftwidth=8
-  augroup END
-]]
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+  pattern = "*.tfvars",
+  callback = function()
+    vim.bo.filetype = "terraform"
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "terraform",
+  callback = function()
+    vim.bo.commentstring = "# %s"
+  end,
+})
+
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+  pattern = {"Tiltfile", "*.tiltfile"},
+  callback = function()
+    vim.bo.filetype = "starlark"
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "starlark",
+  callback = function()
+    vim.bo.commentstring = "# %s"
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+    vim.bo.tabstop = 8
+    vim.bo.softtabstop = 8
+    vim.bo.shiftwidth = 8
+  end,
+})
