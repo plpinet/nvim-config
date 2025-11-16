@@ -4,11 +4,14 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
+    animate = { enabled = true },
     bigfile = { enabled = true },
     dashboard = { enabled = false },
     explorer = { enabled = false },
     indent = { enabled = true },
     input = { enabled = true },
+    gh = { enabled = true },
+    terminal = { enabled = true },
     notifier = {
       enabled = true,
       timeout = 3000,
@@ -74,6 +77,11 @@ return {
     { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
     { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
     { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
+    -- Github CLI
+    { "<leader>gi", function() Snacks.picker.gh_issue() end, desc = "GitHub Issues (open)" },
+    { "<leader>gI", function() Snacks.picker.gh_issue({ state = "all" }) end, desc = "GitHub Issues (all)" },
+    { "<leader>gp", function() Snacks.picker.gh_pr() end, desc = "GitHub Pull Requests (open)" },
+    { "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, desc = "GitHub Pull Requests (all)" },
     -- LSP
     { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
     { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
