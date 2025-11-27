@@ -16,7 +16,16 @@ return {
       enabled = true,
       timeout = 3000,
     },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      win = {
+        input = {
+          keys = {
+            ["<c-space>"] = { "toggle_live", mode = { "i", "n" } },
+          },
+        },
+      },
+    },
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = { enabled = false },
@@ -127,7 +136,7 @@ return {
             dd(...)
           end
         else
-          vim.print = _G.dd 
+          vim.print = _G.dd
         end
 
         -- Create some toggle mappings
