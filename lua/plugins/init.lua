@@ -5,6 +5,7 @@ return {
   'sainnhe/sonokai',
   'sainnhe/gruvbox-material',
   'luisiacc/gruvbox-baby',
+  'neanias/everforest-nvim',
   'folke/tokyonight.nvim',
   'bryanmylee/vim-colorscheme-icons',
   'arcticicestudio/nord-vim',
