@@ -12,6 +12,15 @@ return {
     input = { enabled = true },
     gh = { enabled = true },
     terminal = { enabled = true },
+    lazygit = {
+      configure = true,
+      theme = {
+        activeBorderColor = { fg = "Special", bold = true },
+        inactiveBorderColor = { fg = "Comment" },
+        selectedLineBgColor = { bg = "CursorLine" },
+        selectedRangeBgColor = { bg = "Visual" },
+      },
+    },
     notifier = {
       enabled = true,
       timeout = 3000,
