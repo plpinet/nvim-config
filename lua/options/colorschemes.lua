@@ -8,7 +8,7 @@ vim.g.sonokai_transparent_background = "0"
 vim.g.gruvbox_material_background = "medium"
 vim.g.gruvbox_material_better_performance = true
 vim.g.gruvbox_material_transparent_background = "1"
-vim.g.gruvbox_material_enable_italic = "0"
+vim.g.gruvbox_material_enable_italic = "1"
 vim.g.gruvbox_material_menu_selection_background = "orange"
 vim.g.gruvbox_material_show_eob = "0"
 -- Available values:   'material', 'mix', 'original'
@@ -20,7 +20,7 @@ vim.g.gruvbox_baby_background_color = "hard"
 vim.g.gruvbox_baby_keyword_style = "italic"
 vim.g.gruvbox_baby_highlights = {Normal = {fg = "#123123", bg = "NONE", style="underline"}}
 vim.g.gruvbox_baby_telescope_theme = 0
-vim.g.gruvbox_baby_transparent_mode = 1
+vim.g.gruvbox_baby_transparent_mode = 0
 local colors = require("gruvbox-baby.colors").config()
 vim.g.gruvbox_baby_highlights = {Normal = {fg = colors.milk}}
 
@@ -67,4 +67,27 @@ require('kanagawa').setup({
     },
 })
 
+-- require("gruvbox").setup({
+--   terminal_colors = true,
+--   undercurl = true,
+--   underline = true,
+--   bold = true,
+--   italic = {
+--     strings = true,
+--     emphasis = true,
+--     comments = true,
+--     operators = false,
+--     folds = true,
+--   },
+--   strikethrough = true,
+--   invert_selection = false,
+--   invert_signs = false,
+--   invert_tabline = false,
+--   inverse = true, -- invert background for search, diffs, statuslines and errors
+--   contrast = "", -- can be "hard", "soft" or empty string
+--   palette_overrides = {},
+--   overrides = {},
+--   dim_inactive = false,
+--   transparent_mode = false,
+-- })
 vim.cmd[[colorscheme gruvbox-material]]

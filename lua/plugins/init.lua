@@ -7,6 +7,7 @@ return {
   'luisiacc/gruvbox-baby',
   'neanias/everforest-nvim',
   'folke/tokyonight.nvim',
+  'ellisonleao/gruvbox.nvim',
   'bryanmylee/vim-colorscheme-icons',
   'arcticicestudio/nord-vim',
   'junegunn/limelight.vim',
