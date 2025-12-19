@@ -13,8 +13,8 @@ vim.api.nvim_set_keymap('n', '<leader>o', ':Neotree float reveal=true<cr>', { no
 vim.api.nvim_set_keymap('n', '<leader>bb', ':Neotree right buffers<cr>', { noremap = true, silent = true })
 
 -- easyalign
-vim.api.nvim_set_keymap('n', '<leader>a', '<Plug>(EasyAlign)', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<leader>a', '<Plug>(EasyAlign)', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>A', '<Plug>(EasyAlign)', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<leader>A', '<Plug>(EasyAlign)', { noremap = true, silent = true })
 
 -- tabs
 vim.api.nvim_set_keymap('n', '<Tab>', ':bnext<cr>', { noremap = true, silent = true })
