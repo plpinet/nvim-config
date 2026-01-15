@@ -90,4 +90,4 @@ require('kanagawa').setup({
 --   dim_inactive = false,
 --   transparent_mode = false,
 -- })
-vim.cmd[[colorscheme gruvbox-material]]
+vim.cmd[[colorscheme catppuccin]]

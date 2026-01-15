@@ -51,3 +51,16 @@ vim.api.nvim_set_keymap('v', '<leader>p', '"0p', { noremap = true, silent = fals
 
 -- copy buffer path to register
 vim.api.nvim_set_keymap('n', '<leader>c', ":let @+=expand('%:p')<CR>", { noremap = true, silent = false })
+
+-- toggle inline diagnostics
+local diagnostics_visible = true
+local function toggle_diagnostics()
+  diagnostics_visible = not diagnostics_visible
+  vim.diagnostic.config({ virtual_text = diagnostics_visible })
+  if diagnostics_visible then
+    print("Diagnostics enabled")
+  else
+    print("Diagnostics disabled")
+  end
+end
+vim.keymap.set('n', '<leader>sl', toggle_diagnostics, { noremap = true, silent = false, desc = "Toggle inline diagnostics" })
