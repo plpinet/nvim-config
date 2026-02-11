@@ -8,5 +8,18 @@ return {
       update_in_insert = false,
       severity_sort = true,
     })
+
+    vim.lsp.config("terraformls", {
+      settings = {
+        terraformls = {
+          indexing = {
+            ignoreDirectoryNames = { ".terraform" },
+          },
+          validation = {
+            enableEnhancedValidation = false,
+          },
+        },
+      },
+    })
   end,
 }
