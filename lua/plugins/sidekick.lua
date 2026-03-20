@@ -3,14 +3,19 @@ return {
   opts = {
     -- add any options here
     cli = {
+      win = {
+        split = {
+          width = 120,
+        },
+      },
       mux = {
         backend = "tmux",
-        enabled = false,
+        enabled = true,
       },
     },
     nes = {
       enabled = false,
-    }
+    },
   },
   -- stylua: ignore
   keys = {
