@@ -56,7 +56,9 @@ return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' },
-    opts = {},
+    opts = {
+      enabled = false,
+    },
   },
   -- 'iamcco/markdown-preview.nvim',
   'dhruvasagar/vim-table-mode',
